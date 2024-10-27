@@ -1,14 +1,14 @@
 let startTime = 0;
 let elapsedTime = 0;
 let timerInterval;
-let isRunning = false;  // New flag to track if the stopwatch is running
+let isRunning = false;  
 
 const display = document.getElementById('display');
 const startButton = document.getElementById('start');
 const stopButton = document.getElementById('stop');
 const resetButton = document.getElementById('reset');
 
-// Event listeners for button clicks and touch for mobile support
+
 startButton.addEventListener('click', toggleStopwatch);
 startButton.addEventListener('touchstart', toggleStopwatch);
 
@@ -18,7 +18,6 @@ stopButton.addEventListener('touchstart', toggleStopwatch);
 resetButton.addEventListener('click', resetStopwatch);
 resetButton.addEventListener('touchstart', resetStopwatch);
 
-// Keyboard shortcuts: 'S' to start/stop (toggle), 'R' to reset
 document.addEventListener('keydown', function(event) {
     switch (event.key.toLowerCase()) {
         case 's':
@@ -39,13 +38,13 @@ function toggleStopwatch() {
 }
 
 function startStopwatch() {
-    if (!timerInterval) {  // Prevent starting multiple intervals
+    if (!timerInterval) {  
         startTime = Date.now() - elapsedTime;
         timerInterval = setInterval(updateDisplay, 10);
         startButton.disabled = true;
         stopButton.disabled = false;
         resetButton.disabled = false;
-        isRunning = true;  // Set running state to true
+        isRunning = true;  
     }
 }
 
@@ -54,7 +53,7 @@ function stopStopwatch() {
     timerInterval = null;
     startButton.disabled = false;
     stopButton.disabled = true;
-    isRunning = false;  // Set running state to false
+    isRunning = false;  
 }
 
 function resetStopwatch() {
@@ -65,7 +64,7 @@ function resetStopwatch() {
     startButton.disabled = false;
     stopButton.disabled = true;
     resetButton.disabled = true;
-    isRunning = false;  // Ensure the stopwatch is marked as stopped
+    isRunning = false;  
 }
 
 function updateDisplay() {
@@ -76,7 +75,7 @@ function updateDisplay() {
     const seconds = Math.floor((elapsedTime % 60000) / 1000);
     const milliseconds = Math.floor((elapsedTime % 1000) / 10);
 
-    // Format time with leading zeroes if necessary
+ 
     display.innerHTML = 
         `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(2, '0')}`;
 }
