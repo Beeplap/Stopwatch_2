@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+   
+}
+
+
+.background-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.stopwatch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0px;
+    
+    width: 700px;
+    height: auto;
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+   
+}
+
+#display {
+    font-size: 5em;
+    margin-bottom: 20px;
+    color: #191919;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 1.8em;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#start {
+    background-color: #28a745;
+    color: white;
+}
+
+#stop {
+    background-color: #dc3545;
+    color: white;
+}
+
+#reset {
+    background-color: #ffc107;
+    color: white;
+}
+
+.buttons button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .stopwatch-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #display {
+        font-size: 2em;
+    }
+
+    .buttons button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+}
